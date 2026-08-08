@@ -3,12 +3,13 @@ package com.arthur.edu.practic;
 import java.util.Arrays;
 
 public class DataAnalyzer {
-    public Integer[][] sortMatrix(Integer[][] inputMatrix) {
+    public static Integer[][] sortMatrix(Integer[][] inputMatrix) {
         Integer[][] result = new Integer[inputMatrix.length][];
 
         for (int i = 0; i < inputMatrix.length; i++) {
             result[i] = Arrays.copyOf(inputMatrix[i], inputMatrix[i].length);
         }
+
         for (int i = 0; i < result.length; i++) {
             for (int j = 0; j < result[i].length - 1; j++) {
                 for (int k = 0; k < result[i].length - 1 - j; k++) {
@@ -26,11 +27,10 @@ public class DataAnalyzer {
         return result;
     }
 
-    public static void printMatrix(Integer[][] matrix) {
+    private static void printMatrix(Integer[][] matrix) {
         for (Integer[] integers : matrix) {
             for (int j = 0; j < matrix.length; j++) {
-                System.out.print(integers[j]);
-            }
+                System.out.print(integers[j] + " ");         }
         }
         System.out.println();
     }

@@ -1,5 +1,7 @@
 package com.arthur.edu;
 
+import java.util.Objects;
+
 public class Human {
     private String name;
     private String lastName;
@@ -43,6 +45,18 @@ public class Human {
 
     public void setYear(Integer year) {
         this.year = year;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Human human = (Human) o;
+        return Objects.equals(name, human.name) && Objects.equals(lastName, human.lastName) && Objects.equals(year, human.year);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, lastName, year);
     }
 
     @Override
