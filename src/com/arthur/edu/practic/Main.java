@@ -5,23 +5,59 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-        Integer[][] matrix = {
-                {5, 2},
-                {8, 1}
-        };
+//        Integer[][] matrix = {
+//                {5, 2},
+//                {8, 1}
+//        };
 
 //        Integer[][] result = DataAnalyzer.sortMatrix(matrix);
 
-        float result = calculator(5, 6, '+');
-        System.out.println(result);
+//        float result = calculator(5, 6, '+');
+//        System.out.println(result);
+//
+//        Rectangle rectangle = new Rectangle(3, 4);
+//
+//        System.out.println(rectangle.diagonal());
+//        System.out.println(rectangle.perimeter());
+//        System.out.println(rectangle.square());
 
-        Rectangle rectangle = new Rectangle(3, 4);
+//        temperatureConverter();
+//        secondConverter();
+//        calculatePrice();
+    }
 
-        System.out.println(rectangle.diagonal());
-        System.out.println(rectangle.perimeter());
-        System.out.println(rectangle.square());
 
-        temperatureConverter();
+    public static void calculatePrice() {
+        Scanner s = new Scanner(System.in);
+
+        float TAX = 0.2f;
+
+        System.out.println("Enter price");
+        double price = s.nextDouble();
+        System.out.println("Enter quantity");
+        int quantity = s.nextInt();
+
+        double total = price * quantity;
+        double taxPrice = (TAX * total) + total;
+
+        System.out.printf("Price: %.2f, \nQuantity: %d, \nTotal: %.2f, \nTax %.2f, \nPrice with tax: %.2f", price, quantity, total, TAX * total, taxPrice);
+
+    }
+
+    public static void secondConverter() {
+        Scanner s = new Scanner(System.in);
+
+        int seconds = s.nextInt();
+        int day = seconds / 86400;
+        seconds %= 86400;
+
+        int hours = seconds / 3600;
+        seconds %= 3600;
+
+        int minutes = seconds / 60;
+        seconds %= 60;
+
+        System.out.printf("Days: %d, \n Hour: %d, \n Minutes: %d", day, hours, minutes);
     }
 
     public static void temperatureConverter() {
