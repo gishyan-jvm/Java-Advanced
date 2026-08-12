@@ -1,6 +1,6 @@
 package com.arthur.edu.myCollections;
 
-public interface MyLinkedList<T> {
+public interface MyLinkedList<T> extends Iterable<T> {
     void add(T element);
 
     void add(int index, T element);

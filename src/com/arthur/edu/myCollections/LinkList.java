@@ -1,6 +1,9 @@
 package com.arthur.edu.myCollections;
 
 import java.util.Arrays;
+import java.util.Iterator;
+import java.util.Spliterator;
+import java.util.function.Consumer;
 
 public class LinkList<T> implements MyLinkedList<T>{
 
@@ -159,6 +162,21 @@ public class LinkList<T> implements MyLinkedList<T>{
         result.append("]");
 
         return result.toString();
+    }
+
+    @Override
+    public Iterator<T> iterator() {
+        return null;
+    }
+
+    @Override
+    public void forEach(Consumer<? super T> action) {
+        MyLinkedList.super.forEach(action);
+    }
+
+    @Override
+    public Spliterator<T> spliterator() {
+        return MyLinkedList.super.spliterator();
     }
 
     private static class Node<T> {

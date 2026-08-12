@@ -1,6 +1,9 @@
 package com.arthur.edu.myCollections;
 
 import java.util.Arrays;
+import java.util.Iterator;
+import java.util.Spliterator;
+import java.util.function.Consumer;
 
 public class ArrList<T> implements MyList<T> {
 
@@ -58,5 +61,20 @@ public class ArrList<T> implements MyList<T> {
         result.append("]");
 
         return result.toString();
+    }
+
+    @Override
+    public Iterator<T> iterator() {
+        return null;
+    }
+
+    @Override
+    public void forEach(Consumer<? super T> action) {
+        MyList.super.forEach(action);
+    }
+
+    @Override
+    public Spliterator<T> spliterator() {
+        return MyList.super.spliterator();
     }
 }

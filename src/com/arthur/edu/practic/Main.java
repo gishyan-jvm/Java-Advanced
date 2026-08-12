@@ -1,29 +1,42 @@
 package com.arthur.edu.practic;
 
 import java.util.Scanner;
+import java.util.Stack;
 
 public class Main {
     public static void main(String[] args) {
+        System.out.println(isValid("{fdqfefE} (Dwfef{Cefe})"));
 
-//        Integer[][] matrix = {
-//                {5, 2},
-//                {8, 1}
-//        };
 
-//        Integer[][] result = DataAnalyzer.sortMatrix(matrix);
+    
+    }
 
-//        float result = calculator(5, 6, '+');
-//        System.out.println(result);
-//
-//        Rectangle rectangle = new Rectangle(3, 4);
-//
-//        System.out.println(rectangle.diagonal());
-//        System.out.println(rectangle.perimeter());
-//        System.out.println(rectangle.square());
+    public static boolean isValid(String string) {
 
-//        temperatureConverter();
-//        secondConverter();
-//        calculatePrice();
+        char[] charArray = string.toCharArray();
+
+        Stack<Character> stack = new Stack<>();
+
+        for (char c : charArray) {
+            if (c == '(' || c == '{' || c == '[') {
+                stack.add(c);
+                continue;
+            }
+
+            switch (c) {
+                case '}' -> {
+                    if (stack.isEmpty() || stack.pop() != '{') return false;
+                }
+                case ']' -> {
+                    if (stack.isEmpty() || stack.pop() != '[') return false;
+                }
+                case ')' -> {
+                    if (stack.isEmpty() || stack.pop() != '(') return false;
+                }
+            }
+        }
+
+        return stack.isEmpty();
     }
 
 
