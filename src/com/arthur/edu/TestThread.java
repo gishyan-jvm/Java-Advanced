@@ -1,5 +1,17 @@
 package com.arthur.edu;
 
-public class Test {
-    boolean isKeepRunning = true;
+public class TestThread implements Runnable{
+
+    volatile boolean isKeepRunning = true;
+
+    @Override
+    public void run() {
+        int count = 0;
+
+        while (isKeepRunning) {
+            count++;
+        }
+
+        System.out.printf("Count: %d", count);
+    }
 }

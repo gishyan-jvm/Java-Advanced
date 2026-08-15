@@ -1,14 +1,19 @@
 package com.arthur.edu;
 
-import java.awt.*;
-import java.util.ArrayList;
-import java.util.List;
-
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException{
+        TestThread task = new TestThread();
+        Thread thread = new Thread(task);
 
-    }
-    public static <T extends Comparable<T>> int isEqual(T el1, T el2) {
-        return el1.compareTo(el2);
+        thread.start();
+
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            System.out.println("thread is dead");
+        }
+
+        task.isKeepRunning = false;
+
     }
 }
