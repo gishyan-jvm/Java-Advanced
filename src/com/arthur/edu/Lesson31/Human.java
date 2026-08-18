@@ -1,4 +1,4 @@
-package com.arthur.edu;
+package com.arthur.edu.Lesson31;
 
 import java.util.Objects;
 
